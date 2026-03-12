@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Waivers</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-text">
+          <div class="brand-name">The Belt Hub</div>
+          <div class="brand-sub">Ride CRM</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main</div>
+        <nav class="nav">
+          <a href="dashboard.html"><span class="icon">🏠</span>Dashboard</a>
+          <a href="customers.html"><span class="icon">👤</span>Customers</a>
+          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
+          <a href="payments.html"><span class="icon">💳</span>Payments</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Content</div>
+        <nav class="nav">
+          <a href="waivers.html" class="active"><span class="icon">📜</span>Waivers</a>
+          <a href="coupons.html"><span class="icon">🏷️</span>Coupons</a>
+          <a href="messaging.html"><span class="icon">✉️</span>Messaging</a>
+          <a href="settings.html"><span class="icon">⚙️</span>Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-header">
+        <div>
+          <div class="main-title">Waivers</div>
+          <div class="main-subtitle">Edit and version the legal waiver riders sign</div>
+        </div>
+        <div class="main-actions">
+          <button class="btn">Save new version</button>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Current waiver text</div>
+        </div>
+        <div class="form-row">
+          <div class="form-field" style="flex: 1 1 100%;">
+            <label for="waiver-content">Waiver content</label>
+            <textarea id="waiver-content" placeholder="Enter waiver text here..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="section table-card">
+        <div class="section-header">
+          <div class="section-title">Previous versions</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th>Created</th>
+                <th>Created by</th>
+              </tr>
+            </thead>
+            <tbody id="waivers-table-body">
+              <!-- JS will populate -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
