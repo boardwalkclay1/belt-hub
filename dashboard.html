@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-text">
+          <div class="brand-name">The Belt Hub</div>
+          <div class="brand-sub">Ride CRM</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main</div>
+        <nav class="nav">
+          <a href="dashboard.html" class="active"><span class="icon">🏠</span>Dashboard</a>
+          <a href="customers.html"><span class="icon">👤</span>Customers</a>
+          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
+          <a href="payments.html"><span class="icon">💳</span>Payments</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Content</div>
+        <nav class="nav">
+          <a href="waivers.html"><span class="icon">📜</span>Waivers</a>
+          <a href="coupons.html"><span class="icon">🏷️</span>Coupons</a>
+          <a href="messaging.html"><span class="icon">✉️</span>Messaging</a>
+          <a href="settings.html"><span class="icon">⚙️</span>Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-header">
+        <div>
+          <div class="main-title">Dashboard</div>
+          <div class="main-subtitle">Overview of rides, revenue, and customers</div>
+        </div>
+        <div class="main-actions">
+          <button class="btn-secondary">Export</button>
+          <button class="btn">New coupon</button>
+        </div>
+      </div>
+
+      <section class="card-grid">
+        <div class="card">
+          <div class="card-title">Today’s rides</div>
+          <div class="card-value">0</div>
+          <div class="card-meta">Live count of active and completed rides</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Today’s revenue</div>
+          <div class="card-value">$0.00</div>
+          <div class="card-meta">Includes ride charges and deposit captures</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Active rentals</div>
+          <div class="card-value">0</div>
+          <div class="card-meta">Bikes currently out</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Total customers</div>
+          <div class="card-value">0</div>
+          <div class="card-meta">Unique riders in the system</div>
+        </div>
+      </section>
+
+      <section class="section table-card">
+        <div class="section-header">
+          <div class="section-title">Recent rentals</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Bike</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-recent-rentals">
+              <!-- JS will populate -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
