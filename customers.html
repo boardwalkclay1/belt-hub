@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Customers</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-text">
+          <div class="brand-name">The Belt Hub</div>
+          <div class="brand-sub">Ride CRM</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main</div>
+        <nav class="nav">
+          <a href="dashboard.html"><span class="icon">🏠</span>Dashboard</a>
+          <a href="customers.html" class="active"><span class="icon">👤</span>Customers</a>
+          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
+          <a href="payments.html"><span class="icon">💳</span>Payments</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Content</div>
+        <nav class="nav">
+          <a href="waivers.html"><span class="icon">📜</span>Waivers</a>
+          <a href="coupons.html"><span class="icon">🏷️</span>Coupons</a>
+          <a href="messaging.html"><span class="icon">✉️</span>Messaging</a>
+          <a href="settings.html"><span class="icon">⚙️</span>Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-header">
+        <div>
+          <div class="main-title">Customers</div>
+          <div class="main-subtitle">All riders who have used The Belt Hub</div>
+        </div>
+        <div class="main-actions">
+          <button class="btn-secondary">Export</button>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Search & filter</div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="customer-search">Search</label>
+            <input id="customer-search" placeholder="Name, email, or phone" />
+          </div>
+          <div class="form-field" style="max-width: 140px;">
+            <label>&nbsp;</label>
+            <button class="btn" id="customer-search-btn">Search</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section table-card">
+        <div class="section-header">
+          <div class="section-title">Customer list</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Rides</th>
+                <th>Spent</th>
+                <th>Last ride</th>
+              </tr>
+            </thead>
+            <tbody id="customers-table-body">
+              <!-- JS will populate -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
