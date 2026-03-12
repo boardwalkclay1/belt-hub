@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Coupons</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div class="brand-text">
+          <div class="brand-name">The Belt Hub</div>
+          <div class="brand-sub">Ride CRM</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main</div>
+        <nav class="nav">
+          <a href="dashboard.html"><span class="icon">🏠</span>Dashboard</a>
+          <a href="customers.html"><span class="icon">👤</span>Customers</a>
+          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
+          <a href="payments.html"><span class="icon">💳</span>Payments</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Content</div>
+        <nav class="nav">
+          <a href="waivers.html"><span class="icon">📜</span>Waivers</a>
+          <a href="coupons.html" class="active"><span class="icon">🏷️</span>Coupons</a>
+          <a href="messaging.html"><span class="icon">✉️</span>Messaging</a>
+          <a href="settings.html"><span class="icon">⚙️</span>Settings</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-header">
+        <div>
+          <div class="main-title">Coupons</div>
+          <div class="main-subtitle">Create and manage deals for riders</div>
+        </div>
+        <div class="main-actions">
+          <button class="btn">New coupon</button>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Create / edit coupon</div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="coupon-code">Code</label>
+            <input id="coupon-code" placeholder="WELCOME10" />
+          </div>
+          <div class="form-field">
+            <label for="coupon-type">Type</label>
+            <select id="coupon-type">
+              <option value="percentage">Percentage</option>
+              <option value="flat">Flat amount</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="coupon-value">Value</label>
+            <input id="coupon-value" type="number" placeholder="10" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="coupon-min">Minimum spend</label>
+            <input id="coupon-min" type="number" placeholder="0" />
+          </div>
+          <div class="form-field">
+            <label for="coupon-valid-from">Valid from</label>
+            <input id="coupon-valid-from" type="date" />
+          </div>
+          <div class="form-field">
+            <label for="coupon-valid-to">Valid to</label>
+            <input id="coupon-valid-to" type="date" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field" style="flex: 1 1 100%;">
+            <label for="coupon-description">Description</label>
+            <textarea id="coupon-description" placeholder="Describe this deal..."></textarea>
+          </div>
+        </div>
+        <div class="form-row" style="justify-content: flex-end;">
+          <button class="btn-secondary">Clear</button>
+          <button class="btn">Save coupon</button>
+        </div>
+      </section>
+
+      <section class="section table-card">
+        <div class="section-header">
+          <div class="section-title">Existing coupons</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>Usage</th>
+                <th>Valid</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="coupons-table-body">
+              <!-- JS will populate -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
