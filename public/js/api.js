@@ -8,7 +8,7 @@
    const API_BASE = "https://api.thebelthub.com";
 ============================================================ */
 
-const API_BASE = "https://YOUR-WORKER-URL-HERE"; // <-- SET THIS
+const API_BASE = "https://belt-hub-worker.boardwalkclay1.workers.dev/"; // <-- SET THIS
 
 
 /* ============================================================
