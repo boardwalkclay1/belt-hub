@@ -1,7 +1,12 @@
 export async function query(env, sql, params = []) {
-  return await env.DB.prepare(sql).bind(...params).all();
+  const stmt = env.DB.prepare(sql);
+  const bound = params.length ? stmt.bind(...params) : stmt;
+  const result = await bound.all();
+  return result;
 }
 
-export async function run(env, sql, params = []) {
-  return await env.DB.prepare(sql).bind(...params).run();
+export async function exec(env, sql, params = []) {
+  const stmt = env.DB.prepare(sql);
+  const bound = params.length ? stmt.bind(...params) : stmt;
+  return await bound.run();
 }
