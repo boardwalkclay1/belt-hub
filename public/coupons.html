@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Coupons</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- your entire sidebar + layout stays exactly the same -->
+
+    <main class="main">
+      <!-- your entire coupons UI stays exactly the same -->
+
+      <section class="section table-card">
+        <div class="section-header">
+          <div class="section-title">Existing coupons</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>Usage</th>
+                <th>Valid</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="coupons-table-body">
+              <!-- JS will populate -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ⭐ REQUIRED: wire the page to the JS logic -->
+  <script type="module" src="js/coupons.js"></script>
+</body>
+</html>
