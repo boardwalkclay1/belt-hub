@@ -7,35 +7,7 @@
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-logo"></div>
-        <div class="brand-text">
-          <div class="brand-name">The Belt Hub</div>
-          <div class="brand-sub">Ride CRM</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="nav-section-title">Main</div>
-        <nav class="nav">
-          <a href="dashboard.html"><span class="icon">🏠</span>Dashboard</a>
-          <a href="customers.html"><span class="icon">👤</span>Customers</a>
-          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
-          <a href="payments.html"><span class="icon">💳</span>Payments</a>
-        </nav>
-      </div>
-
-      <div>
-        <div class="nav-section-title">Content</div>
-        <nav class="nav">
-          <a href="waivers.html"><span class="icon">📜</span>Waivers</a>
-          <a href="coupons.html"><span class="icon">🏷️</span>Coupons</a>
-          <a href="messaging.html" class="active"><span class="icon">✉️</span>Messaging</a>
-          <a href="settings.html"><span class="icon">⚙️</span>Settings</a>
-        </nav>
-      </div>
-    </aside>
+    <!-- sidebar unchanged -->
 
     <main class="main">
       <div class="main-header">
@@ -48,51 +20,7 @@
         </div>
       </div>
 
-      <section class="section">
-        <div class="section-header">
-          <div class="section-title">Audience</div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="audience-filter">Filter</label>
-            <select id="audience-filter">
-              <option value="all">All customers</option>
-              <option value="no-ride-30">No ride in 30 days</option>
-              <option value="high-value">High value riders</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="channel">Channel</label>
-            <select id="channel">
-              <option value="email">Email</option>
-              <option value="sms">SMS</option>
-              <option value="both">Both</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div class="section-title">Message</div>
-        </div>
-        <div class="form-row">
-          <div class="form-field" style="flex: 1 1 100%;">
-            <label for="message-subject">Subject (email)</label>
-            <input id="message-subject" placeholder="Come ride with us again" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field" style="flex: 1 1 100%;">
-            <label for="message-body">Body</label>
-            <textarea id="message-body" placeholder="Write your message here..."></textarea>
-          </div>
-        </div>
-        <div class="form-row" style="justify-content: flex-end;">
-          <button class="btn-secondary">Preview</button>
-          <button class="btn">Queue campaign</button>
-        </div>
-      </section>
+      <!-- audience + message sections unchanged -->
 
       <section class="section table-card">
         <div class="section-header">
@@ -117,5 +45,8 @@
       </section>
     </main>
   </div>
+
+  <!-- ⭐ REQUIRED: wire the page to the JS logic -->
+  <script type="module" src="js/messaging.js"></script>
 </body>
 </html>
