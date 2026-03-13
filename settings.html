@@ -1,89 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>The Belt Hub CRM – Settings</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-logo"></div>
-        <div class="brand-text">
-          <div class="brand-name">The Belt Hub</div>
-          <div class="brand-sub">Ride CRM</div>
-        </div>
-      </div>
+import { apiGet, apiPost } from "./api.js";
 
-      <div>
-        <div class="nav-section-title">Main</div>
-        <nav class="nav">
-          <a href="dashboard.html"><span class="icon">🏠</span>Dashboard</a>
-          <a href="customers.html"><span class="icon">👤</span>Customers</a>
-          <a href="rentals.html"><span class="icon">🚲</span>Rentals</a>
-          <a href="payments.html"><span class="icon">💳</span>Payments</a>
-        </nav>
-      </div>
+document.addEventListener("DOMContentLoaded", async () => {
+  const depositEl = document.getElementById("deposit-amount");
+  const hourlyEl = document.getElementById("hourly-rate");
+  const stripeEl = document.getElementById("stripe-key");
+  const emailEl = document.getElementById("email-provider-key");
+  const smsEl = document.getElementById("sms-provider-key");
+  const saveBtn = document.querySelector(".btn");
 
-      <div>
-        <div class="nav-section-title">Content</div>
-        <nav class="nav">
-          <a href="waivers.html"><span class="icon">📜</span>Waivers</a>
-          <a href="coupons.html"><span class="icon">🏷️</span>Coupons</a>
-          <a href="messaging.html"><span class="icon">✉️</span>Messaging</a>
-          <a href="settings.html" class="active"><span class="icon">⚙️</span>Settings</a>
-        </nav>
-      </div>
-    </aside>
+  // Load settings
+  try {
+    const settings = await apiGet("/admin/settings");
 
-    <main class="main">
-      <div class="main-header">
-        <div>
-          <div class="main-title">Settings</div>
-          <div class="main-subtitle">Pricing, deposits, and integrations</div>
-        </div>
-      </div>
+    depositEl.value = settings.deposit_amount || 100;
+    hourlyEl.value = settings.hourly_rate || 25;
+    stripeEl.value = settings.stripe_key || "";
+    emailEl.value = settings.email_key || "";
+    smsEl.value = settings.sms_key || "";
 
-      <section class="section">
-        <div class="section-header">
-          <div class="section-title">Pricing</div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="deposit-amount">Deposit amount ($)</label>
-            <input id="deposit-amount" type="number" value="100" />
-          </div>
-          <div class="form-field">
-            <label for="hourly-rate">Hourly rate ($)</label>
-            <input id="hourly-rate" type="number" value="25" />
-          </div>
-        </div>
-      </section>
+  } catch (err) {
+    console.error("Failed to load settings:", err);
+  }
 
-      <section class="section">
-        <div class="section-header">
-          <div class="section-title">Integrations</div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="stripe-key">Stripe key</label>
-            <input id="stripe-key" placeholder="sk_live_..." />
-          </div>
-          <div class="form-field">
-            <label for="email-provider-key">Email API key</label>
-            <input id="email-provider-key" placeholder="SendGrid / Mailgun key" />
-          </div>
-          <div class="form-field">
-            <label for="sms-provider-key">SMS API key</label>
-            <input id="sms-provider-key" placeholder="Twilio key" />
-          </div>
-        </div>
-        <div class="form-row" style="justify-content: flex-end;">
-          <button class="btn">Save settings</button>
-        </div>
-      </section>
-    </main>
-  </div>
-</body>
-</html>
+  // Save settings
+  saveBtn.addEventListener("click", async () => {
+    try {
+      await apiPost("/admin/settings", {
+        deposit_amount: Number(depositEl.value),
+        hourly_rate: Number(hourlyEl.value),
+        stripe_key: stripeEl.value.trim(),
+        email_key: emailEl.value.trim(),
+        sms_key: smsEl.value.trim()
+      });
+
+      alert("Settings saved");
+
+    } catch (err) {
+      console.error("Failed to save settings:", err);
+      alert("Error saving settings");
+    }
+  });
+});
