@@ -11,6 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Register service worker
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/service-worker.js")
-      .catch(err => console.error("SW registration failed:", err));
+      .catch(err => console.error("Service Worker registration failed:", err));
   }
 });
