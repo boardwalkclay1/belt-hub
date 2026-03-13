@@ -1,43 +1,64 @@
-import { apiGet, apiPost } from "./api.js";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Belt Hub CRM – Settings</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- sidebar unchanged -->
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const depositEl = document.getElementById("deposit-amount");
-  const hourlyEl = document.getElementById("hourly-rate");
-  const stripeEl = document.getElementById("stripe-key");
-  const emailEl = document.getElementById("email-provider-key");
-  const smsEl = document.getElementById("sms-provider-key");
-  const saveBtn = document.querySelector(".btn");
+    <main class="main">
+      <div class="main-header">
+        <div>
+          <div class="main-title">Settings</div>
+          <div class="main-subtitle">Pricing, deposits, and integrations</div>
+        </div>
+      </div>
 
-  // Load settings
-  try {
-    const settings = await apiGet("/admin/settings");
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Pricing</div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="deposit-amount">Deposit amount ($)</label>
+            <input id="deposit-amount" type="number" value="100" />
+          </div>
+          <div class="form-field">
+            <label for="hourly-rate">Hourly rate ($)</label>
+            <input id="hourly-rate" type="number" value="25" />
+          </div>
+        </div>
+      </section>
 
-    depositEl.value = settings.deposit_amount || 100;
-    hourlyEl.value = settings.hourly_rate || 25;
-    stripeEl.value = settings.stripe_key || "";
-    emailEl.value = settings.email_key || "";
-    smsEl.value = settings.sms_key || "";
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Integrations</div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="stripe-key">Stripe key</label>
+            <input id="stripe-key" placeholder="sk_live_..." />
+          </div>
+          <div class="form-field">
+            <label for="email-provider-key">Email API key</label>
+            <input id="email-provider-key" placeholder="SendGrid / Mailgun key" />
+          </div>
+          <div class="form-field">
+            <label for="sms-provider-key">SMS API key</label>
+            <input id="sms-provider-key" placeholder="Twilio key" />
+          </div>
+        </div>
+        <div class="form-row" style="justify-content: flex-end;">
+          <button class="btn">Save settings</button>
+        </div>
+      </section>
+    </main>
+  </div>
 
-  } catch (err) {
-    console.error("Failed to load settings:", err);
-  }
-
-  // Save settings
-  saveBtn.addEventListener("click", async () => {
-    try {
-      await apiPost("/admin/settings", {
-        deposit_amount: Number(depositEl.value),
-        hourly_rate: Number(hourlyEl.value),
-        stripe_key: stripeEl.value.trim(),
-        email_key: emailEl.value.trim(),
-        sms_key: smsEl.value.trim()
-      });
-
-      alert("Settings saved");
-
-    } catch (err) {
-      console.error("Failed to save settings:", err);
-      alert("Error saving settings");
-    }
-  });
-});
+  <!-- ⭐ REQUIRED: wire the page to the JS logic -->
+  <script type="module" src="js/settings.js"></script>
+</body>
+</html>
