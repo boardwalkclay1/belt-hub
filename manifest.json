@@ -1,0 +1,21 @@
+{
+  "name": "The Belt Hub CRM",
+  "short_name": "BeltHub CRM",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "description": "Owner & staff dashboard for The Belt Hub.",
+  "icons": [
+    {
+      "src": "/icons/belt-hub.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/hub.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
