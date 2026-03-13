@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>The Belt Hub CRM – Login</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/auth.js"></script>
 </head>
 <body>
   <div class="login-page">
@@ -15,23 +16,29 @@
           <div class="login-subtitle">Owner & staff access</div>
         </div>
       </div>
-      <form>
+
+      <form id="login-form">
         <div class="form-row">
           <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="owner@thebelthub.com" />
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" placeholder="owner@thebelthub.com" />
           </div>
         </div>
+
         <div class="form-row">
           <div class="form-field">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" />
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" placeholder="••••••••" />
           </div>
         </div>
+
+        <div id="login-error" class="error-text" style="margin-top: 6px; color: #d33;"></div>
+
         <div class="form-row" style="justify-content: flex-end;">
           <button type="submit" class="btn">Sign in</button>
         </div>
       </form>
+
     </div>
   </div>
 </body>
