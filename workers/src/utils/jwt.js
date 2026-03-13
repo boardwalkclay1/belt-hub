@@ -7,6 +7,6 @@ export async function sign(payload, secret) {
     .sign(new TextEncoder().encode(secret));
 }
 
-export async function verify(token, secret) {
+export async function verifyToken(token, secret) {
   return await jwtVerify(token, new TextEncoder().encode(secret));
 }
