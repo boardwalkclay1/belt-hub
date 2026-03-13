@@ -9,7 +9,10 @@ import * as pub from "./routes/public.js";
 
 export const router = Router();
 
-// AUTH
+// PUBLIC LOGIN (CRM + Rider App expect this)
+router.post("/api/login", auth.login);
+
+// ADMIN LOGIN (optional, if you want separate admin auth)
 router.post("/admin/auth/login", auth.login);
 
 // ADMIN
@@ -25,7 +28,7 @@ router.post("/admin/waivers", waivers.createVersion);
 router.get("/admin/coupons", coupons.list);
 router.post("/admin/coupons", coupons.create);
 
-// PUBLIC
+// PUBLIC (Rider App)
 router.post("/public/customers/upsert", pub.upsertCustomer);
 router.get("/public/waivers/current", pub.currentWaiver);
 router.post("/public/waivers/sign", pub.signWaiver);
