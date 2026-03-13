@@ -1,28 +1,35 @@
-import { query, run } from '../db.js';
-import { captureAmount } from '../utils/stripe.js';
+import { query, exec } from "../db.js";
+import { requireAuth } from "../utils/auth.js";
+
+export async function list(request, env) {
+  const auth = await requireAuth(request, env);
+  if (!auth) return new Response("Unauthorized", { status: 401 });
+
+  const result = await query(env,
+    "SELECT * FROM rentals ORDER BY start_time DESC"
+  );
+
+  return new Response(JSON.stringify(result.results), {
+    headers: { "Content-Type": "application/json" }
+  });
+}
 
 export async function captureDeposit(request, env) {
-  const { id } = request.params;
+  const auth = await requireAuth(request, env);
+  if (!auth) return new Response("Unauthorized", { status: 401 });
+
+  const rentalId = request.params.id;
   const body = await request.json();
-  const { amount_cents, reason } = body;
 
-  const rental = await query(env,
-    "SELECT * FROM rentals WHERE id = ? LIMIT 1",
-    [id]
-  );
-
-  const r = rental.results[0];
-
-  const res = await captureAmount(env, r.payment_intent_id, amount_cents);
-
-  await run(env,
+  await exec(env,
     `UPDATE rentals
-     SET deposit_amount_captured = deposit_amount_captured + ?, deposit_status = 'partially_captured'
+     SET deposit_amount_captured = deposit_amount_captured + ?,
+         deposit_status = 'captured'
      WHERE id = ?`,
-    [amount_cents, id]
+    [body.amount_cents, rentalId]
   );
 
-  return new Response(JSON.stringify({ success: true, stripe: res }), {
+  return new Response(JSON.stringify({ success: true }), {
     headers: { "Content-Type": "application/json" }
   });
 }
