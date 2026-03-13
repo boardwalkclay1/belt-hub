@@ -52,22 +52,22 @@
       <section class="card-grid">
         <div class="card">
           <div class="card-title">Today’s rides</div>
-          <div class="card-value">0</div>
+          <div class="card-value" id="dash-today-rides">0</div>
           <div class="card-meta">Live count of active and completed rides</div>
         </div>
         <div class="card">
           <div class="card-title">Today’s revenue</div>
-          <div class="card-value">$0.00</div>
+          <div class="card-value" id="dash-today-revenue">$0.00</div>
           <div class="card-meta">Includes ride charges and deposit captures</div>
         </div>
         <div class="card">
           <div class="card-title">Active rentals</div>
-          <div class="card-value">0</div>
+          <div class="card-value" id="dash-active-rentals">0</div>
           <div class="card-meta">Bikes currently out</div>
         </div>
         <div class="card">
           <div class="card-title">Total customers</div>
-          <div class="card-value">0</div>
+          <div class="card-value" id="dash-total-customers">0</div>
           <div class="card-meta">Unique riders in the system</div>
         </div>
       </section>
@@ -96,5 +96,8 @@
       </section>
     </main>
   </div>
+
+  <!-- ⭐ REQUIRED: wire the page to the JS logic -->
+  <script type="module" src="js/dashboard.js"></script>
 </body>
 </html>
